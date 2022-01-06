@@ -171,9 +171,6 @@ class Login extends Main
             Main::displayErrors(Main::$errors);
         }
 
-
-
-
     }
 
 

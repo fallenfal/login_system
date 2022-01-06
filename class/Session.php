@@ -14,7 +14,7 @@ class Session extends Main{
         session_start();
         $this->checkLogin();
         $this->checkMessage();
-        $this->visitorCount();
+//        $this->visitorCount();
     }
 
     public function message($msg = ""){
@@ -67,13 +67,13 @@ class Session extends Main{
     }
 
 
-    public function visitorCount(){
-
-        if(isset($_SESSION['count'])){
-            return $this->count = $_SESSION['count']++;
-        } else {
-            return $_SESSION['count'] = 1;
-        }
-
-    }
+//    public function visitorCount(){
+//
+//        if(isset($_SESSION['count'])){
+//            return $this->count = $_SESSION['count']++;
+//        } else {
+//            return $_SESSION['count'] = 1;
+//        }
+//
+//    }
 }

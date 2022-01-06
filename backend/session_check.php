@@ -32,3 +32,5 @@ if($session->isSignedIn()){
 } else{
     Main::redirect('../../login.php');
 }
+
+?>

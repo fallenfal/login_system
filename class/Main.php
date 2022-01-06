@@ -30,7 +30,7 @@ class Main{
     }
 
     protected function passwordVerify($password,$hash){
-        if (password_verify($password, $hash)) {
+        if (password_verify($password,$hash)) {
             return true;
         } else {
             self::$errors[] = "Password is not correct";
@@ -84,6 +84,7 @@ class Main{
             return $password;
         }
     }
+
 
     public static function displayErrors($err){
         if(!empty($err)){
