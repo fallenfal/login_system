@@ -256,6 +256,10 @@ class User extends Main {
     }
 
 
+    public function wtf_git(){
+
+    }
+
 
 
 
