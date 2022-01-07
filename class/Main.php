@@ -162,8 +162,8 @@ class Main{
         $mail->Port = 587; // TLS only
         $mail->SMTPSecure = 'tls'; // ssl is depracated
         $mail->SMTPAuth = true;
-        $mail->Username = "fallenfal.alex@gmail.com";
-        $mail->Password = "isbmbfsjvnulfsrf";
+        $mail->Username = "yourgmail";
+        $mail->Password = "yoursecretcode";
         $mail->setFrom("no-reply@simple-login-system.com", $subject);
         $mail->addAddress($email, $name);
         $mail->Subject = $subject;
