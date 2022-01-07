@@ -157,20 +157,19 @@ class Main{
 
         $mail = new PHPMailer;
         $mail->isSMTP();
-        $mail->SMTPDebug = 0; // 0 = off (for production use) - 1 = client messages - 2 = client and server messages
+        $mail->SMTPDebug = 1; // 0 = off (for production use) - 1 = client messages - 2 = client and server messages
         $mail->Host = "smtp.gmail.com"; // use $mail->Host = gethostbyname('smtp.gmail.com'); // if your network does not support SMTP over IPv6
         $mail->Port = 587; // TLS only
         $mail->SMTPSecure = 'tls'; // ssl is depracated
         $mail->SMTPAuth = true;
-        $mail->Username = "lapos.alexgabriel@gmail.com";
-        $mail->Password = "lowfnbdpmkqzeskc";
+        $mail->Username = "fallenfal.alex@gmail.com";
+        $mail->Password = "isbmbfsjvnulfsrf";
         $mail->setFrom("no-reply@simple-login-system.com", $subject);
         $mail->addAddress($email, $name);
         $mail->Subject = $subject;
         $mail->msgHTML($msg); //$mail->msgHTML(file_get_contents('contents.html'), __DIR__); //Read an HTML message body from an external file, convert referenced images to embedded,
         $mail->AltBody = 'HTML messaging not supported';
         // $mail->addAttachment('images/phpmailer_mini.png'); //Attach an image file
-
         if(!$mail->send()){
             return $this->errors = $mail->ErrorInfo;
         }else{

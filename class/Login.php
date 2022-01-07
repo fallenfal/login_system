@@ -83,9 +83,14 @@ class Login extends Main
 
 
                 if($this->insert($query, $params)){
-                    $this->sentEmail($this->email,$subject,$message);
-                    $_SESSION['registration_form'] = true;
-                    Main::redirect("thank_you.php");
+                    if($this->sentEmail($this->email,$subject,$message)){
+                        $_SESSION['registration_form'] = true;
+                        Main::redirect("thank_you.php");
+                    } else {
+                        global $session;
+                        $session->message("Mail was not sent");
+                    }
+
                 }
             }
 
@@ -116,26 +121,29 @@ class Login extends Main
             } else {
 
                 $query = "SELECT * FROM " . $this->table . " WHERE email='". $this->email ."'";
-
                 $result = $this->select($query);
 
+                if(!empty($result)){
+                    if ($this->passwordVerify($this->password, $result[0]["user_password"])){
+                        if($result[0]['active'] == '0'){
+                            Main::$errors[] = "User is not activated , please check your email";
+                            Main::displayErrors(Main::$errors);
+                        } else {
+                            global $session;
+                            $session->login($result[0]);
 
-
-                if ($this->passwordVerify($this->password, $result[0]["user_password"])){
-                    if($result[0]['active'] == '0'){
-                        Main::$errors[] = "User is not activated , please check your email";
-                        Main::displayErrors(Main::$errors);
+                            $session->message("user logged iin : " );
+                            Main::redirect("backend/home/dashboard.php");
+                        }
                     } else {
-                        global $session;
-                        $session->login($result[0]);
-
-                        $session->message("user logged iin : " );
-                        Main::redirect("backend/home/dashboard.php");
+                        Main::$errors[] = "Password is not valid";
+                        Main::displayErrors(Main::$errors);
                     }
                 } else {
-                    Main::$errors[] = "Password is not valid";
+                    Main::$errors[] = "The email is not registered";
                     Main::displayErrors(Main::$errors);
                 }
+
 
             }
 
@@ -161,6 +169,8 @@ class Login extends Main
             $query = "UPDATE " . $this->table . " SET " . $this->setAttributesForUpdate($params) ." WHERE email = '". $result[0]['email'] ."'";
 
             if($this->update($query,$params)){
+                global $session;
+                $session->message("Your Account has been activated .please login" );
                 Main::redirect("login.php");
             }
 

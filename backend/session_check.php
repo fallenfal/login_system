@@ -1,4 +1,7 @@
+
+
 <?php
+include  "b_includes/footer.php";
 global $session;
 if($session->isSignedIn()){
     unset($_SESSION['userLogged']['password']);
@@ -7,27 +10,26 @@ if($session->isSignedIn()){
     if(!empty($session_message)){
 
         ?>
-        <div style="border-radius:4px;margin-left: auto;margin-right: auto;left: 0;right: 0;height:auto;background-color:#636e72;text-align: center;position:absolute;top:30px;min-height: 30px;border:1px solid #2d3436" class="container session-message">
 
-            <?php echo $session_message; ?>
-            <div class="close-icon" style="position:absolute;top:0;right:0;padding:5px;font-size:15px;cursor: pointer;">&times;</div>
-        </div>
 
         <script>
-            let sessionElement = document.getElementsByClassName('session-message') ;
-            let closeSession = document.getElementsByClassName('close-icon');
-            setTimeout(function () {
-                sessionElement[0].style.display='none';
-            }, 25000);
-            closeSession[0].addEventListener('click', function(){
-                sessionElement[0].style.display='none';
+            $(document).ready(function() {
+                $(".toast").toast('show');
             });
+            </script>
 
-        </script>
+        <div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true" style="margin:5px;position: absolute;">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <?php echo $session_message; ?>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+
 
 
         <?php
-
     }
 } else{
     Main::redirect('../../login.php');
