@@ -14,7 +14,7 @@ $register = new Login();
          });
      </script>
 
-     <div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true" style="margin:5px;position: absolute;">
+     <div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true" style="margin:5px;position: absolute;top:0">
          <div class="d-flex">
              <div class="toast-body">
                  <?php echo $session_message; ?>
@@ -25,12 +25,20 @@ $register = new Login();
         <?php
  }
 ?>
-<h1 class="lead">Registration Form</h1>
 
-<div class="container">
+<div class="container login-page">
     <div class="row">
-        <div class="col-md-6 offset-3">
+        <div class="col-md-6 login-image-wrapper">
+            <div class="login-image">
+                <div class="login-image-text">
+                    <h1>Build something amazing!</h1>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6 login-form-wrapper">
             <?php $register->login(); ?>
+            <h2>Login Form</h2>
             <form method="post">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
