@@ -8,3 +8,5 @@
 ## if you discover a bug pls email me at fallenfal.alex@gmail.com
 
 ### i m still learning so be gentle:)
+## Not yet finished, only small bugs to fix on hosting.
+
