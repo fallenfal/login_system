@@ -1,6 +1,4 @@
 <?php
-
-
 function load_model($class_name){
     $path_to_file = $_SERVER['DOCUMENT_ROOT']. '/login_system/class/' . $class_name . '.php';
 

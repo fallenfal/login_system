@@ -41,7 +41,10 @@ html,body{
 .login-page .row{
     width:100%
 }
-
+.registration-page{
+    padding-top:50px;
+    padding-bottom:50px
+}
 /*
 
    Inputs css

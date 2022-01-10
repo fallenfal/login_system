@@ -184,6 +184,7 @@ class User extends Main {
             $this->username = Main::clean($_POST['username']);
             $this->image = $this->uploadSingleImage($_FILES['picture']);
 
+
             $this->checkEmailWithException($this->email);
 
             $this->email = $this->notEmpty($this->email);
@@ -193,7 +194,8 @@ class User extends Main {
             $this->firstname = $this->minLen($this->firstname);
             $this->lastname = $this->notEmpty($this->lastname);
             $this->lastname = $this->minLen($this->lastname);
-
+            $this->username = $this->notEmpty($this->username);
+            $this->username = $this->minLen($this->username);
 
 
 
@@ -202,18 +204,21 @@ class User extends Main {
                 Main::displayErrors(Main::$errors);
             } else {
                 global $session;
+                $params = [];
+
                 $params = [
                     "email" => $this->email,
                     "firstname" => $this->firstname,
                     "lastname" => $this->lastname,
-                    "username" => $this->username,
-                    "image" => $this->image
+                    "username" => $this->username
                 ];
-
+                if(!empty($this->image)){
+                    $params['user_image'] = $this->image;
+                }
                 $query = "UPDATE " . $this->table . " SET " . $this->setAttributesForUpdate($params) ." WHERE email = '". $session->userLogged['email'] ."'";
-
+                echo $query;
                 if($this->update($query,$params)){
-                    $session->message("User has been updated");
+                    $session->message("User has been updated.");
                     Main::redirect("single_user.php");
                 }
 

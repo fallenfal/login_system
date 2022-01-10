@@ -1,5 +1,3 @@
-
-
 <?php
 include  "b_includes/footer.php";
 global $session;

@@ -1,18 +1,28 @@
+<?php include_once "init.php"; ?>
+
 <!-- Header include - css,scripts and head -->
 <?php include_once "f_includes/header.php"; ?>
-<?php include_once "init.php"; ?>
 
 <?php
 $register = new Login();
 
 ?>
-<h1 class="lead">Registration Form</h1>
 
-<div class="container">
+
+<div class="container login-page">
     <div class="row">
-        <div class="col-md-6 offset-3">
+        <div class="col-md-6 login-image-wrapper">
+            <div class="login-image">
+                <div class="login-image-text">
+                    <h1>Build something amazing!</h1>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6 login-form-wrapper registration-page">
             <?php $register->register(); ?>
-            <form method="post">
+            <h2>Registration Form</h2>
+            <form method="post"">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -40,8 +50,6 @@ $register = new Login();
         </div>
     </div>
 </div>
-
-
 
 
 
