@@ -125,6 +125,48 @@ html,body{
     width:100%
 }
 
+
+.index-page {
+    height:100%;
+}
+.index-page .row{
+    height: 100%;
+    align-items: center;
+}
+.index-page .reg{
+    text-align: right;
+}
+.index-page a {
+    font-size:1.3em
+}
+.index-page .reg{
+    background-color: var(--dark-navy-100);
+    color:var(--flat-orange-100);
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: end;
+}
+.index-page .log{
+    background-color: var(--flat-orange-100);
+    color:var(--dark-navy-100);
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: start;
+}
+.index-page .log a {
+    color:var(--dark-navy-100);
+}
+
+.index-page .reg a {
+    color:var(--flat-orange-100);
+}
+
+
+
+
+
 /*
 
    Small css elements
@@ -150,5 +192,9 @@ html,body{
     }
     .login-page{
         margin-top:100px
+    }
+    .index-page .reg,.index-page .log{
+        justify-content: center;
+        height: 50%;
     }
 }

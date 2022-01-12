@@ -78,7 +78,7 @@ class Login extends Main
                 $subject = "Account registration";
                 $message = "
                     Thank you for registering!<br>
-                    To activate your account visit : domain.com/activate_account?activationCode={$params["activation_code"]}&email={$params["email"]}<br>
+                    To activate your account visit :<a href='{$_SERVER['SERVER_NAME']}/activate_account.php?activationCode={$params["activation_code"]}&email={$params["email"]}'>{$_SERVER['SERVER_NAME']}/activate_account.php?activationCode={$params["activation_code"]}&email={$params["email"]}</a> <br>
                 ";
 
 
@@ -132,7 +132,7 @@ class Login extends Main
                             global $session;
                             $session->login($result[0]);
 
-                            $session->message("user logged iin : " );
+                            $session->message("You are now logged in, welcome {$session->userLogged['firstname']}" );
                             Main::redirect("backend/home/dashboard.php");
                         }
                     } else {

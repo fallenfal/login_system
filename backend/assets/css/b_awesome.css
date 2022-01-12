@@ -142,7 +142,21 @@ html,body{
 .card.bg-primary{
     background-color: var(--navy-100) !important;
 }
+.dashboard .database code{
+    padding:7px;
+    background-color: var(--navy-100);
+    color: var(--flat-orange-100);
+    border-radius:4px;
+    border:1px solid var(--dark-navy-100);
+    display: block;
+}
 
+.dashboard .headings{
+    padding-top:100px
+}
+.dashboard .row{
+    padding-bottom:40px
+}
 
 
 
