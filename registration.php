@@ -7,7 +7,7 @@
 $register = new Login();
 
 ?>
-
+TEST
 
 <div class="container login-page">
     <div class="row">
